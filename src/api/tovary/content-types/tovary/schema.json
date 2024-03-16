@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tovaries",
+  "info": {
+    "singularName": "tovary",
+    "pluralName": "tovaries",
+    "displayName": "Товары",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "pod_kategoriyas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pod-kategoriya.pod-kategoriya",
+      "inversedBy": "tovaries"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "kategoriyas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "tovaries"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "excert": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "title": {
+      "type": "string"
+    },
+    "seo_descripiton": {
+      "type": "string"
+    },
+    "seo_keywords": {
+      "type": "string"
+    }
+  }
+}

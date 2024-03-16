@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "singularName": "category",
+    "pluralName": "categories",
+    "displayName": "Категория",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "pod_kategoriyas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pod-kategoriya.pod-kategoriya",
+      "mappedBy": "category"
+    },
+    "section": {
+      "type": "enumeration",
+      "enum": [
+        "ingredients",
+        "application"
+      ],
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "tovaries": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tovary.tovary",
+      "mappedBy": "kategoriyas"
+    },
+    "test": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbarBaloon"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}
