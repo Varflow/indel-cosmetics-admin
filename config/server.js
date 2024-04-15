@@ -1,7 +1,7 @@
 module.exports = ({ env }) => ({
   host: env("HOST", "0.0.0.0"),
   port: env.int("PORT", 1337),
-  // url: env("PUBLIC_URL",  "https://chempha.com"),
+  url: env("URL", "http://localhost:1337/admin"),
   app: {
     keys: env.array("APP_KEYS"),
   },
