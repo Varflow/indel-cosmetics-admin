@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "video_glavnayas",
+  "info": {
+    "singularName": "video-glavnaya",
+    "pluralName": "video-glavnayas",
+    "displayName": "Видео (Главная)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "video": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
