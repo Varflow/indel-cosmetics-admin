@@ -31,6 +31,10 @@
     "description": {
       "type": "text",
       "required": false
+    },
+    "button_text": {
+      "type": "string",
+      "required": false
     }
   }
 }
