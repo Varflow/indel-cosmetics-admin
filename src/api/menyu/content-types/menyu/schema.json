@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "menyus",
+  "info": {
+    "singularName": "menyu",
+    "pluralName": "menyus",
+    "displayName": "Меню"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "first_menu_item": {
+      "type": "string",
+      "required": true
+    },
+    "second_menu_item": {
+      "type": "string",
+      "required": true
+    },
+    "third_menu_item": {
+      "type": "string",
+      "required": true
+    },
+    "fourth_menu_item": {
+      "type": "string",
+      "required": true
+    },
+    "fifth_menu_item": {
+      "type": "string"
+    },
+    "sixth_menu_item": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

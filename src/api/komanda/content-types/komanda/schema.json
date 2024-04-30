@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "komandas",
+  "info": {
+    "singularName": "komanda",
+    "pluralName": "komandas",
+    "displayName": "Команда"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "position": {
+      "type": "string",
+      "required": true
+    },
+    "avatar": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

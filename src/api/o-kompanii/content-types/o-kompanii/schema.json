@@ -1,0 +1,59 @@
+{
+  "kind": "singleType",
+  "collectionName": "o_kompaniis",
+  "info": {
+    "singularName": "o-kompanii",
+    "pluralName": "o-kompaniis",
+    "displayName": "О компании",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "first_block_title": {
+      "type": "text",
+      "required": true
+    },
+    "second_block_title": {
+      "type": "string",
+      "required": true
+    },
+    "third_block_title": {
+      "type": "text",
+      "required": true
+    },
+    "our_team_title": {
+      "type": "string"
+    },
+    "first_block_text": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "second_block_text": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "third_block_text": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

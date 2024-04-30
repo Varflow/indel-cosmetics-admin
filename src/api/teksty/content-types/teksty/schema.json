@@ -1,0 +1,50 @@
+{
+  "kind": "singleType",
+  "collectionName": "teksties",
+  "info": {
+    "singularName": "teksty",
+    "pluralName": "teksties",
+    "displayName": "Тексты",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "first_section_title": {
+      "type": "richtext",
+      "required": true
+    },
+    "first_section_subtitle": {
+      "type": "richtext"
+    },
+    "first_section_button_text": {
+      "type": "string"
+    },
+    "second_section_title": {
+      "type": "richtext"
+    },
+    "second_section_subtitle": {
+      "type": "richtext"
+    },
+    "third_section_title": {
+      "type": "richtext"
+    },
+    "third_section_button_text": {
+      "type": "string"
+    },
+    "fourth_section_title": {
+      "type": "richtext"
+    },
+    "fourth_section_button_text": {
+      "type": "string"
+    },
+    "fifth_section_title": {
+      "type": "richtext"
+    },
+    "fifth_section_button_text": {
+      "type": "string"
+    }
+  }
+}
