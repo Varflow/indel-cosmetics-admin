@@ -35,6 +35,9 @@
     "button_text": {
       "type": "string",
       "required": false
+    },
+    "order": {
+      "type": "integer"
     }
   }
 }
