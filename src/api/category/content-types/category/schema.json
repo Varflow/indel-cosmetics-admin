@@ -54,6 +54,10 @@
         "preset": "toolbarBaloon"
       },
       "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "order": {
+      "type": "integer",
+      "unique": false
     }
   }
 }

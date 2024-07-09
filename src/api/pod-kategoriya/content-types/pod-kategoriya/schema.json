@@ -38,6 +38,9 @@
       "relation": "manyToMany",
       "target": "api::tovary.tovary",
       "mappedBy": "pod_kategoriyas"
+    },
+    "order": {
+      "type": "integer"
     }
   }
 }
