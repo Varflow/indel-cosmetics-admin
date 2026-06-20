@@ -1,7 +1,0 @@
-{
-  "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"echo \\\"=== .attributes / v4 patterns ===\\\" && grep -rn \\\"\\\\.attributes\\\\|\\\\.data\\\\.attributes\\\\|lodash.orderby\\\\|useLocale\\\\|axios\\\" /Users/dev_wandry/projects/personal/indel-cosm/indel_co...",
-  "error": "Exit code 1\n=== .attributes / v4 patterns ===",
-  "timestamp": "2026-06-20T11:08:29.898Z",
-  "retry_count": 1
-}
