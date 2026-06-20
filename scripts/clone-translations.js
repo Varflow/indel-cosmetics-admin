@@ -6,18 +6,18 @@
  * на запущенном инстансе Strapi.
  *
  * Использование:
- *   pnpm clone-translations                    # source=uk-UA, target=en
+ *   pnpm clone-translations                    # source=en, target=uk-UA
  *   pnpm clone-translations <source> <target>  # явные локали
- *   STRAPI_URL=http://prod:1337 pnpm clone-translations uk-UA en
+ *   STRAPI_URL=http://prod:1337 pnpm clone-translations en uk-UA
  *
  * Перед запуском Strapi должен быть поднят (`pnpm develop` или `pnpm start`).
  */
 
-const STRAPI_URL = process.env.STRAPI_URL || "http://localhost:1337";
+const STRAPI_URL = "http://localhost:1337";
 
 const [, , sourceArg, targetArg] = process.argv;
-const source = sourceArg || "uk-UA";
-const target = targetArg || "en";
+const source = sourceArg || "en";
+const target = targetArg || "uk-UA";
 
 const url = `${STRAPI_URL}/api/clone-translation/clone-all`;
 

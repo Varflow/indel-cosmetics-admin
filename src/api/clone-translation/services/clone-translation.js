@@ -31,19 +31,23 @@ const RELATION_COLLECTIONS = [
   },
 ];
 
+// Phase-2 relation linking. Each many-to-many pair is a SINGLE shared join table,
+// so it must be set from ONE side only — setting it again from the inverse side
+// re-runs `set` on an already-populated relation, which Strapi rejects with a
+// misleading "relation(s) ... do not exist" error. Coverage (each pair once):
+//   category.pod_kategoriyas  -> category <-> pod-kategoriya
+//   category.tovaries         -> category <-> tovary (tovary.kategoriyas)
+//   pod-kategoriya.tovaries   -> pod-kategoriya <-> tovary (tovary.pod_kategoriyas)
+// tovary therefore needs no phase-2 links (all three pairs are covered above).
 const RELATION_TARGETS = {
   "api::category.category": {
     pod_kategoriyas: "api::pod-kategoriya.pod-kategoriya",
     tovaries: "api::tovary.tovary",
   },
   "api::pod-kategoriya.pod-kategoriya": {
-    category: "api::category.category",
     tovaries: "api::tovary.tovary",
   },
-  "api::tovary.tovary": {
-    kategoriyas: "api::category.category",
-    pod_kategoriyas: "api::pod-kategoriya.pod-kategoriya",
-  },
+  "api::tovary.tovary": {},
 };
 
 const stripMetadata = (data) => {
@@ -165,7 +169,6 @@ module.exports = ({ strapi }) => ({
           const translated = await strapi.documents(ct.uid).findOne({
             documentId: original.documentId,
             locale: targetLocale,
-            status: "published",
           });
           if (!translated) continue;
 
@@ -174,34 +177,35 @@ module.exports = ({ strapi }) => ({
             const rel = original[field];
             if (rel == null) continue;
 
-            if (Array.isArray(rel)) {
-              const linked = [];
-              for (const r of rel) {
-                const t = await strapi.documents(targetUid).findOne({
-                  documentId: r.documentId,
-                  locale: targetLocale,
-                  status: "published",
-                });
-                if (t) linked.push(t.documentId);
-              }
-              updateData[field] = linked;
-            } else {
+            // Normalize single/array relations; resolve each to its target-locale
+            // counterpart (documentId is shared across locales) and build an explicit
+            // v5 relation `set` payload.
+            const items = Array.isArray(rel) ? rel : [rel];
+            const connect = [];
+            for (const r of items) {
               const t = await strapi.documents(targetUid).findOne({
-                documentId: rel.documentId,
+                documentId: r.documentId,
                 locale: targetLocale,
-                status: "published",
               });
-              updateData[field] = t ? t.documentId : null;
+              if (t) connect.push({ documentId: t.documentId });
+            }
+            if (connect.length > 0) {
+              updateData[field] = { set: connect };
             }
           }
 
           if (Object.keys(updateData).length === 0) continue;
 
+          // update() edits the draft (NOT a `status` param); publish() then
+          // propagates the freshly linked relations to the published locale version.
           await strapi.documents(ct.uid).update({
             documentId: original.documentId,
             locale: targetLocale,
-            status: "published",
             data: updateData,
+          });
+          await strapi.documents(ct.uid).publish({
+            documentId: original.documentId,
+            locale: targetLocale,
           });
 
           summary.relationsLinked.push({
