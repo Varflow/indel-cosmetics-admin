@@ -1,0 +1,17 @@
+{
+  "agents": [
+    {
+      "agent_id": "aadmin-worker-4c4b76879af658a7",
+      "agent_type": "admin-worker",
+      "started_at": "2026-06-20T11:05:05.310Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-06-20T11:05:15.775Z",
+      "duration_ms": 10465
+    }
+  ],
+  "total_spawned": 1,
+  "total_completed": 1,
+  "total_failed": 0,
+  "last_updated": "2026-06-20T11:27:14.808Z"
+}

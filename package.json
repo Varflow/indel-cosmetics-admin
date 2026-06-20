@@ -9,18 +9,18 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
-    "@_sh/strapi-plugin-ckeditor": "^2.0.4",
-    "@strapi/plugin-i18n": "4.11.7",
-    "@strapi/plugin-users-permissions": "4.11.7",
-    "@strapi/provider-email-nodemailer": "^4.12.0",
-    "@strapi/provider-email-sendgrid": "^4.12.4",
-    "@strapi/strapi": "4.11.7",
-    "better-sqlite3": "8.0.1",
-    "custom-slug": "^2.1.1",
+    "@_sh/strapi-plugin-ckeditor": "^7.1.1",
+    "@strapi/plugin-users-permissions": "5.42.1",
+    "@strapi/provider-email-nodemailer": "^5.0.0",
+    "@strapi/provider-email-sendgrid": "^5.0.0",
+    "@strapi/strapi": "5.42.1",
+    "better-sqlite3": "12.8.0",
     "pg": "^8.11.1",
-    "strapi-plugin-import-export-entries": "^1.21.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.0.0",
+    "styled-components": "^6.0.0"
   },
   "author": {
     "name": "A Strapi developer"
@@ -29,8 +29,16 @@
     "uuid": "29b5d4d6-173e-4ff0-a44b-fe043af6045a"
   },
   "engines": {
-    "node": ">=14.19.1 <=20.x.x",
+    "node": ">=18.0.0 <=22.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3",
+      "sharp",
+      "esbuild",
+      "@swc/core"
+    ]
+  }
 }

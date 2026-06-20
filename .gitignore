@@ -40,11 +40,13 @@ $RECYCLE.BIN/
 *.csv
 *.dat
 *.dmg
-# *.gz
+*.gz
 *.iso
 *.jar
 *.rar
 *.tar
+*.tar.gz
+*.tgz
 *.zip
 *.com
 *.class
@@ -112,4 +114,8 @@ exports
 *.cache
 dist
 build
+.strapi
 .strapi-updater.json
+types
+
+.yarn

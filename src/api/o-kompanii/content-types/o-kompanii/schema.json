@@ -34,7 +34,7 @@
     "first_block_text": {
       "type": "customField",
       "options": {
-        "preset": "toolbar"
+        "preset": "defaultHtml"
       },
       "required": true,
       "customField": "plugin::ckeditor5.CKEditor"
@@ -42,7 +42,7 @@
     "second_block_text": {
       "type": "customField",
       "options": {
-        "preset": "toolbar"
+        "preset": "defaultHtml"
       },
       "required": true,
       "customField": "plugin::ckeditor5.CKEditor"
@@ -50,7 +50,7 @@
     "third_block_text": {
       "type": "customField",
       "options": {
-        "preset": "toolbar"
+        "preset": "defaultHtml"
       },
       "required": true,
       "customField": "plugin::ckeditor5.CKEditor"

@@ -51,7 +51,7 @@
     "test": {
       "type": "customField",
       "options": {
-        "preset": "toolbarBaloon"
+        "preset": "defaultHtml"
       },
       "customField": "plugin::ckeditor5.CKEditor"
     },

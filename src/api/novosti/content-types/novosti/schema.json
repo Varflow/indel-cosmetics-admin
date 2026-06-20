@@ -18,7 +18,7 @@
     "text": {
       "type": "customField",
       "options": {
-        "preset": "toolbar"
+        "preset": "defaultHtml"
       },
       "customField": "plugin::ckeditor5.CKEditor",
       "required": true
