@@ -7,7 +7,8 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "clone-translations": "node scripts/clone-translations.js"
   },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^7.1.1",
