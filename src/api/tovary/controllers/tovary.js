@@ -9,23 +9,22 @@ const { createCoreController } = require("@strapi/strapi").factories;
 module.exports = createCoreController("api::tovary.tovary", ({ strapi }) => ({
   async findOne(ctx) {
     const { id } = ctx.params;
+    const { populate, locale } = ctx.query;
 
-    const { populate, locale = strapi.config.get("api.defaultLocale") } =
-      ctx.query;
+    const isNumeric = !isNaN(Number(id));
 
-    console.log("ctx.params:", ctx.params);
+    const base = await strapi.db.query("api::tovary.tovary").findOne({
+      where: isNumeric ? { id } : { documentId: id },
+      select: ["documentId"],
+    });
 
-    const queryId = isNaN(Number(id)) ? { documentId: id } : { id };
-    console.log("queryId:", queryId);
-    const entity = await strapi.db.query("api::tovary.tovary").findOne({
-      where: {
-        $and: [
-          queryId,
-          {
-            locale,
-          },
-        ],
-      },
+    if (!base) {
+      return ctx.notFound("Tovary not found");
+    }
+
+    const entity = await strapi.documents("api::tovary.tovary").findOne({
+      documentId: base.documentId,
+      locale: locale || undefined,
       populate,
     });
 
